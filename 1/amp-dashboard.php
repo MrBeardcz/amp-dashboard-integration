@@ -5,8 +5,9 @@ session_start();
 $USERS = [
     "admin" => "tajneheslo",
     "MrBeard_cz" => "Beard123",
-    "NoobSapiens2960" => "Noob123"
-];
+    "NoobSapiens2960" => "Noob123",
+    "User" => "User123"
+];  
 
 // ⚙️ AMP servery
 $servers = [
