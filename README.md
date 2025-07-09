@@ -1,5 +1,6 @@
+# Need Game Hosting Web??
+Then you are right here
 # AMP Dashboard Integration
-# 100% in PHP
 
 You must have "PUBLIC IP"(On Computer[REQUINED])" and "DOMAIN"(Free Domain-[subdomain]-you can get on ByteHost/InfinityFree'free way. If you have no problem paying for the domain use hostinger-Recomended)"
 
