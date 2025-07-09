@@ -1,2 +1,2 @@
-# enderbyte-amp-dashboard
-# just integration
+# AMP Dashboard Integration
+# 100% in PHP
