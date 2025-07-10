@@ -1,4 +1,4 @@
-1# Need Game Hosting Web??
+# Need Game Hosting Web??
 Then you are right here
 # AMP Dashboard Integration
 
