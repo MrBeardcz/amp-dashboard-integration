@@ -3,13 +3,13 @@ session_start();
 
 // 🔐 Uživatelské účty
 $USERS = [
-    "admin" => "tajneheslo",
-    "MrBeard_cz" => "Beard123",
-    "NoobSapiens2960" => "Noob123",
+    "admin" => "admin",
+    "User" => "User1",
+    "User" => "User12",
     "User" => "User123"
 ];  
 
-// ⚙️ AMP servery
+// ⚙️ AMP servers
 $servers = [
     "Survival" => ["ip" => "127.0.0.1", "port" => 8080, "pass" => "heslo1"],
     "Creative" => ["ip" => "127.0.0.1", "port" => 8081, "pass" => "heslo2"]
