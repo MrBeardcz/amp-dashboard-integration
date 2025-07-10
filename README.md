@@ -7,9 +7,9 @@ You must have "PUBLIC IP"(On Computer[REQUINED])" and "DOMAIN"(Free Domain-[subd
 # Edit admin users in amp-integration.php, and edit servers IP!!!!!
 
 # Working on register/login like:
-Username:
-E-mail:
-Password:
+# Username:
+# E-mail:
+# Password:
 # Will be released around August 30, 2025
 
 # Need User Panel
