@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// 🔐 Uživatelské účty
+// 🔐 User Account
 $USERS = [
     "admin" => "admin",
     "User" => "User1",
@@ -9,13 +9,13 @@ $USERS = [
     "User" => "User123"
 ];  
 
-// ⚙️ AMP servers
+// ⚙️ servers
 $servers = [
     "Survival" => ["ip" => "127.0.0.1", "port" => 8080, "pass" => "heslo1"],
     "Creative" => ["ip" => "127.0.0.1", "port" => 8081, "pass" => "heslo2"]
 ];
 
-// Přihlášení
+// login 
 if (isset($_POST['login'])) {
     $user = $_POST['user'] ?? '';
     $pass = $_POST['pass'] ?? '';
@@ -23,18 +23,18 @@ if (isset($_POST['login'])) {
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $user;
     } else {
-        $error = "Neplatné přihlašovací údaje!";
+        $error = "check Password username!";
     }
 }
 
-// Odhlášení
+// logout
 if (isset($_GET['logout'])) {
     session_destroy();
     header("Location: ?");
     exit;
 }
 
-// AMP API komunikace
+// AMP API Communication 
 function amp_api($ip, $port, $password, $endpoint, $args = []) {
     $data = json_encode([
         "password" => $password,
