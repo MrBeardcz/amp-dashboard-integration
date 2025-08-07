@@ -9,13 +9,13 @@ $USERS = [
     "User" => "User123"
 ];  
 
-// ⚙️ servers
+// ⚙️ Servers
 $servers = [
-    "Survival" => ["ip" => "127.0.0.1", "port" => 8080, "pass" => "heslo1"],
-    "Creative" => ["ip" => "127.0.0.1", "port" => 8081, "pass" => "heslo2"]
+    "Survival" => ["ip" => "127.0.0.1", "port" => 8080, "pass" => "password1"],
+    "Creative" => ["ip" => "127.0.0.1", "port" => 8081, "pass" => "password2"]
 ];
 
-// login 
+// Login
 if (isset($_POST['login'])) {
     $user = $_POST['user'] ?? '';
     $pass = $_POST['pass'] ?? '';
@@ -23,11 +23,11 @@ if (isset($_POST['login'])) {
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $user;
     } else {
-        $error = "check Password username!";
+        $error = "Check username and password!";
     }
 }
 
-// logout
+// Logout
 if (isset($_GET['logout'])) {
     session_destroy();
     header("Location: ?");
@@ -51,7 +51,7 @@ function amp_api($ip, $port, $password, $endpoint, $args = []) {
 // Chat
 $chatFile = "chat.txt";
 if (isset($_POST['sendchat']) && isset($_SESSION['loggedin'])) {
-    $name = $_SESSION['username'] ?? 'Neznámý';
+    $name = $_SESSION['username'] ?? 'Unknown';
     $msg = trim($_POST['message'] ?? '');
     if ($msg !== '') {
         $entry = date("H:i") . " <strong>" . htmlspecialchars($name) . ":</strong> " . htmlspecialchars($msg) . "<br>\n";
@@ -70,7 +70,7 @@ if (isset($_GET['loadchat']) && isset($_SESSION['loggedin'])) {
 $page = $_GET['page'] ?? 'amp';
 ?>
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>AMP Dashboard</title>
@@ -78,24 +78,24 @@ $page = $_GET['page'] ?? 'amp';
 </head>
 <body class="bg-dark text-light p-4">
 <?php if (!isset($_SESSION['loggedin'])): ?>
-<h2>Přihlášení</h2>
+<h2>Login</h2>
 <?php if (!empty($error)): ?><div class="alert alert-danger"><?= $error ?></div><?php endif; ?>
 <form method="post">
-    <input class="form-control my-2" name="user" placeholder="Uživatelské jméno" required>
-    <input class="form-control my-2" type="password" name="pass" placeholder="Heslo" required>
-    <button class="btn btn-primary" name="login">Přihlásit</button>
+    <input class="form-control my-2" name="user" placeholder="Username" required>
+    <input class="form-control my-2" type="password" name="pass" placeholder="Password" required>
+    <button class="btn btn-primary" name="login">Login</button>
 </form>
 <?php else: ?>
-<a href="?logout=1" class="btn btn-danger mb-3">Odhlásit (<?= htmlspecialchars($_SESSION['username']) ?>)</a>
+<a href="?logout=1" class="btn btn-danger mb-3">Logout (<?= htmlspecialchars($_SESSION['username']) ?>)</a>
 <?php if ($page === 'amp'): ?>
 <h2>AMP Dashboard</h2>
-<p>AMP sekce připravená, aktivní až při spuštěném AMP serveru.</p>
+<p>AMP section ready, active only when the AMP server is running.</p>
 <?php elseif ($page === 'chat'): ?>
-<h2>Chat mezi uživateli</h2>
+<h2>User Chat</h2>
 <div id="chatbox" style="background:#222; padding:10px; height:300px; overflow-y:scroll; border:1px solid #555;" class="mb-2"></div>
 <form onsubmit="sendChat(event)" class="d-flex gap-2">
-    <input type="text" id="chatmsg" class="form-control" placeholder="Napiš zprávu..." required>
-    <button type="submit" class="btn btn-success">Odeslat</button>
+    <input type="text" id="chatmsg" class="form-control" placeholder="Type a message..." required>
+    <button type="submit" class="btn btn-success">Send</button>
 </form>
 <?php endif; ?>
 <?php endif; ?>
